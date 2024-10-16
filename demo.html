@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <style>
+            #test {
+                margin-left: 50%;
+                margin-right:auto;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 class = "test">
+            Testing
+        </h1>
+        <h1 id = "test">
+
+        </h1>
+        <button onclick = api() id = "testing_api" >
+            Click to make request
+        </button>
+        <script>
+            
+            setInterval(func,1000);
+            function func(){
+                let d = new Date();
+                document.getElementById("test").innerHTML = d.getHours() + ": " + d.getMinutes() + ":" + d.getSeconds();
+            }
+            async function api(){
+               const res = await fetch('http://localhost:3000/',{
+                
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    
+               });
+               document.getElementById("testing_api").innerHTML = res.json();
+            }
+        </script>
+    </body>
+</html>
